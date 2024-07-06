@@ -1,20 +1,33 @@
-function commonElements(arr1, arr2){
-    for(let i = 0; i < arr1.length; i++){
-        let el1 = arr1[i];
-        for(let j = 0; j < arr2.length; j++){
-            let el2 = arr2[j];
+function addAndSubtract(array){
+    let arrayNums = array.map(Number)
+    let newArr = [];
+    let even = 0;
+    let odd = 0;
 
-            if(el1 === el2){
-                console.log(el1);
-            }
+    for(let num of arrayNums){
+        even += num
+    }
+
+    for(let i = 0; i < arrayNums.length; i++){
+        let curNum = arrayNums[i];
+
+        if(curNum % 2 === 0){
+            curNum += i 
+            newArr.push(curNum);
+        }else if(curNum % 2 !== 0){
+            curNum -= i
+            newArr.push(curNum)
         }
     }
+
+    for(let num of newArr){
+        odd += num
+    }
+
+    console.log(`[ ${newArr.join(', ')} ]`);
+
+    console.log(even);
+    console.log(odd);
 }
-commonElements
-(['Hey', 'hello', 2, 4, 'Peter', 'e'],
-
-['Petar', 10, 'hey', 4, 'hello', '2'])
-
-// (['S', 'o', 'f', 't', 'U', 'n', 'i', ' '],
-
-// ['s', 'o', 'c', 'i', 'a', 'l'])
+addAndSubtract
+([5, 15, 23, 56, 35])
